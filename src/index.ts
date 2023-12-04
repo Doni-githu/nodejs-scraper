@@ -9,8 +9,8 @@ puppeteer.launch({ headless: false, channel: 'chrome' })
         page.setRequestInterception(true)
         page.on('request', filterRequest);
         await page.goto("https://www.dns-shop.ru/catalog/17a8d26216404e77/vstraivaemye-xolodilniki/")
-        await page.waitForSelector('.catalog-product', { timeout: 200000 });
-        await page.waitForSelector(".product-buy__price", { timeout: 200000 })
+        await page.waitForSelector('.catalog-product', { timeout: 20000 });
+        await page.waitForSelector(".product-buy__price", { timeout: 20000 })
         const allNeedsData = await getCatalogs(page)
         saveCsv(allNeedsData, ['name', 'price'])
         await browser.close()
